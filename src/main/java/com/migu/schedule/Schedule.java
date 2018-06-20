@@ -106,8 +106,27 @@ public class Schedule {
 	}
 
 	public int scheduleTask(int threshold) {
+		if(threshold<=0) {
+			return ReturnCodeKeys.E002;
+		}
+		for(int i=0;i<allTask.size();i++) {
+			if(allTask.get(i).nodeId != -1) {
+				if(i==allTask.size()-1) {
+					return ReturnCodeKeys.E014;
+				}
+			}
+		}
 		
-		return ReturnCodeKeys.E000;
+		
+		int num = pool.size();
+		int tasknum = allTask.size()/num;
+		for(int i=0;i<num;i++) {
+			for(int j=i*tasknum;j<(i+1)*tasknum;j++) {
+				allTask.get(j).nodeId=pool.get(i).nodeId;
+				System.out.println(pool.get(i).nodeId);
+			}
+		}
+		return ReturnCodeKeys.E013;
 	}
 
 	public int queryTaskStatus(List<TaskInfo> tasks) {
