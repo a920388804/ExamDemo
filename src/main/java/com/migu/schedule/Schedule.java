@@ -13,7 +13,6 @@ public class Schedule {
 
 
     public int init() {
-        System.out.println("123");
         return ReturnCodeKeys.E000;
     }
 
