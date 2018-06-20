@@ -13,7 +13,7 @@ public class Schedule {
 
 
     public int init() {
-        // TODO 方法未实现
+        System.out.println("123");
         return ReturnCodeKeys.E000;
     }
 
